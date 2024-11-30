@@ -1,6 +1,6 @@
 <nav id="navbar" class="navbar navbar-expand-lg pt-3">
   <div class="container">
-    <a class="navbar-brand " routerLink="/home">
+    <a class="navbar-brand" routerLink="/home" (click)="collapseNavbar()">
       <img src="assets/vendors/imgs/icon.svg" class="img-fluid" style="width: 50px;" alt="Bootstrap" width="150">
     </a>
     <button class="navbar-toggler collapsed shadow-none" type="button" data-bs-toggle="collapse"
@@ -12,29 +12,36 @@
     <div class="navbar-collapse collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 p-1 gap-3">
         <li class="nav-item">
-          <a class="nav-link shadow-none" routerLink="/home" routerLinkActive="activ">Home</a>
+          <a class="nav-link shadow-none" routerLink="/home" routerLinkActive="activ"
+            (click)="collapseNavbar()">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link shadow-none" routerLink="/movies" routerLinkActive="activ">Movies</a>
+          <a class="nav-link shadow-none" routerLink="/movies" routerLinkActive="activ"
+            (click)="collapseNavbar()">Movies</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link shadow-none" routerLink="/series" routerLinkActive="activ">Series</a>
+          <a class="nav-link shadow-none" routerLink="/series" routerLinkActive="activ"
+            (click)="collapseNavbar()">Series</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link shadow-none" routerLink="/my-movies" routerLinkActive="activ">My Movies</a>
+          <a class="nav-link shadow-none" routerLink="/my-movies" routerLinkActive="activ" (click)="collapseNavbar()">My
+            Movies</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link shadow-none" routerLink="/support" routerLinkActive="activ">Support</a>
+          <a class="nav-link shadow-none" routerLink="/support" routerLinkActive="activ"
+            (click)="collapseNavbar()">Support</a>
         </li>
       </ul>
       <div class="d-flex text-center justify-content-center iconNav">
-        <i class="fa-solid fa-magnifying-glass fs-5 me-3" (click)="openSearchModal()" style="cursor: pointer;"></i>
-        <i class="fa-regular fa-user fs-5" routerLinkActive="fa-solid text-danger" routerLink="/profile"
+        <i class="fa-solid fa-magnifying-glass fs-5 me-3" (click)="openSearchModal(); collapseNavbar()"
           style="cursor: pointer;"></i>
+        <i class="fa-regular fa-user fs-5" routerLinkActive="fa-solid text-danger" routerLink="/profile"
+          style="cursor: pointer;" (click)="collapseNavbar()"></i>
       </div>
     </div>
   </div>
 </nav>
+
 
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">

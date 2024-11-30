@@ -27,7 +27,7 @@ export class FilmsApiService {
   // Get films by page
   getFilmsByPage(page: number): Observable<any> {
     return this.http.get(
-      `https://api.themoviedb.org/3/top_rated/movie?page=${page}&api_key=${this.apiKey}`
+      `https://api.themoviedb.org/3/discover/movie?page=${page}&api_key=${this.apiKey}`
     );
   }
 

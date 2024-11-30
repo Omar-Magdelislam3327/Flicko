@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { FilmsApiService } from 'src/app/controllers/films-api.service';
 import { Subject } from 'rxjs';
@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
     });
 
     this.searchSubject.pipe(
-      debounceTime(500),
+      debounceTime(700),
       distinctUntilChanged(),
       switchMap((query) => this.api.searchMovies(query))
     ).subscribe(
@@ -78,9 +78,18 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  collapseNavbar(): void {
-    const navbarToggler = document.getElementById('navbarToggler')!;
-    if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
+  // collapseNavbar(): void {
+  //   const navbarToggler = document.getElementById('navbarToggler')!;
+  //   if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
+  //     navbarToggler.click();
+  //   }
+  // }
+  @ViewChild('navbarToggler')
+  navbarToggler!: ElementRef;
+
+  collapseNavbar() {
+    const navbarToggler = this.navbarToggler.nativeElement;
+    if (!navbarToggler.classList.contains('collapsed')) {
       navbarToggler.click();
     }
   }
