@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let genre of genres">
+        <ng-template carouselSlide>
+          <a class="text-reset text-decoration-none" [routerLink]="['/genre', genre.id]">
+            <div class="box genre p-lg-3">
+              <img [src]="genre.imageUrl" class="img-fluid" alt="{{genre.name}}" style=" height: 180px;">
+              <h6 class="mt-2 px-lg-0 px-2">{{genre.name}}</h6>
+            </div>
+          </a>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</div>

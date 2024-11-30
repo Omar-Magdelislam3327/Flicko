@@ -1,0 +1,158 @@
+main {
+  min-height: 100vh;
+}
+
+.container-total {
+  border: 1px solid var(--black15);
+  border-radius: 12px;
+
+  & .carde {
+    background-color: var(--black10);
+    border-radius: 12px;
+    transition: 0.3s;
+
+    & h6 {
+      color: var(--grey60);
+      background-color: var(--black8);
+      padding: 6px;
+      border: 1px solid var(--black15);
+      border-radius: 12px;
+    }
+
+    & img {
+      border-top-left-radius: 12px !important;
+      border-top-right-radius: 12px !important;
+      transition: 0.4s ease;
+    }
+
+    & .img-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+
+  .movie {
+    position: relative;
+  }
+
+  .check {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    color: var(--grey60);
+    background-color: var(--black10);
+    padding: 6px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 7847878;
+  }
+
+  .check:hover {
+    background-color: var(--red45);
+    color: white;
+  }
+
+  .film {
+    position: relative;
+  }
+
+  .remove {
+    position: absolute;
+    top: 25px;
+    right: 13px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color: var(--red45);
+    padding: 6px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 7847878;
+  }
+
+  .remove:hover {
+    background-color: var(--red50);
+    color: white;
+  }
+
+  .carde:hover {
+    background-color: var(--black12);
+  }
+
+  .carde:hover .img-wrapper img {
+    transform: scale(1.1);
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+  }
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: #dc3545;
+  border-radius: 6px;
+  color: white;
+  text-align: center !important;
+  padding: 4px 10px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination a {
+  background: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  padding: 4px 10px;
+  margin-inline: 3px !important;
+  text-align: center !important;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.my-pagination ::ng-deep .ngx-pagination a:hover {
+  background: #dc3545;
+  border-radius: 6px;
+  color: white;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .disabled {
+  color: gray;
+  margin-inline: 3px;
+  text-decoration: none;
+  text-align: center !important;
+}
+
+::ng-deep .owl-prev,
+::ng-deep .owl-next {
+  background-color: var(--red50) !important;
+  color: white !important;
+  font-size: 24px !important;
+  transition: 0.3s !important;
+  cursor: pointer;
+}
+
+::ng-deep .owl-prev:hover,
+::ng-deep .owl-next:hover {
+  background-color: var(--red45) !important;
+}
+
+::ng-deep .owl-carousel .owl-item {
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .owl-carousel .owl-item .card {
+  width: 100%;
+  max-width: 25%;
+  margin: 0 10px;
+}
+
+@media (min-width: 1000px) {
+  ::ng-deep .owl-carousel .owl-item .card {
+    width: 25%;
+  }
+}

@@ -1,0 +1,122 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+main {
+  min-height: 100vh;
+}
+
+:root {
+  --red45: #D81F2E;
+  --red50: #D92561;
+  --red90: #FFCCCC;
+  --black6: #0F0F0F;
+  --grey95: #F1F1F3;
+}
+
+.total-favorites,
+.user-info {
+  height: 150px;
+}
+
+.genre-stats,
+.favorite-actors,
+.total-favorites,
+.user-info {
+  background-color: var(--black10);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.genre-stats {
+  height: 65px;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.genre-stats-pie {
+  background-color: var(--black10);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+::ng-deep p-card header {
+  background-color: var(--red45);
+  color: white;
+  padding: 15px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+}
+
+::ng-deep button {
+  /* width: 100%; */
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+::ng-deep button.btn-primary {
+  background-color: var(--red45);
+  color: white;
+}
+
+::ng-deep button.btn-danger {
+  background-color: var(--red50);
+  color: white;
+}
+
+.favorite-actors-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.favorite-actors-card li {
+  font-size: 1.1rem;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.genre-stats {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.total-favorites p,
+.genre-stats p {
+  font-size: 1.2rem;
+}
+
+.user-info button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.imgsActors img {
+  width: 11%;
+  /* height: 100px; */
+  margin-right: 10px;
+}
+
+.favorite-actors {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.favorite-actors h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card {
+  background-color: var(--black10);
+}

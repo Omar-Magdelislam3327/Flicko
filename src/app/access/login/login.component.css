@@ -1,0 +1,34 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: var(--black12);
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  width: 450px;
+  height: 400px;
+}
+
+.form-control {
+  background-color: var(--black8) !important;
+  border: 1px solid var(--black15) !important;
+  caret-color: var(--red45);
+  color: var(--grey60) !important;
+}
+
+.form-control::placeholder {
+  color: var(--grey60) !important;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.btn-outline-secondary {
+  border-color: none !important;
+}

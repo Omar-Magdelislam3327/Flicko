@@ -1,0 +1,25 @@
+.col {
+  transition: 0.3s;
+}
+
+.col:hover {
+  filter: grayscale(0%) !important;
+}
+
+.row:hover>.col:not(:hover) {
+  filter: grayscale(100%) !important;
+}
+
+::ng-deep .owl-prev,
+::ng-deep .owl-next {
+  background-color: var(--red50) !important;
+  color: white !important;
+  font-size: 24px !important;
+  transition: 0.3s !important;
+  cursor: pointer;
+}
+
+::ng-deep .owl-prev:hover,
+::ng-deep .owl-next:hover {
+  background-color: var(--red45) !important;
+}

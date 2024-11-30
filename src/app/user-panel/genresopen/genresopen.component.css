@@ -1,0 +1,82 @@
+main {
+  min-height: 100vh;
+}
+
+.sectionMovie1 .container {
+  border: 1px solid var(--black15);
+  border-radius: 12px;
+
+  & .genreopen {
+    background-color: var(--black10);
+    border-radius: 12px;
+    transition: 0.3s;
+
+    & h6 {
+      color: var(--grey60);
+      background-color: var(--black8);
+      padding: 6px;
+      border: 1px solid var(--black15);
+      border-radius: 12px;
+    }
+
+    & img {
+      transition: 0.4s ease;
+    }
+
+    & .img-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+
+  .genreopen:hover {
+    background-color: var(--black12);
+  }
+
+  .genreopen:hover .img-wrapper img {
+    transform: scale(1.1);
+  }
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: #dc3545;
+  border-radius: 6px;
+  color: white;
+  text-align: center !important;
+  padding: 4px 10px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination a {
+  background: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  padding: 4px 10px;
+  margin-inline: 3px !important;
+  text-align: center !important;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.my-pagination ::ng-deep .ngx-pagination a:hover {
+  background: #dc3545;
+  border-radius: 6px;
+  color: white;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .disabled {
+  color: gray;
+  margin-inline: 3px;
+  text-decoration: none;
+  text-align: center !important;
+}
+
+.form-select {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--black8) !important;
+  border: 1px solid var(--black15) !important;
+  color: var(--grey50);
+}

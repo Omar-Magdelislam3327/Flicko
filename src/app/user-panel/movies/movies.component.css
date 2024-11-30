@@ -1,0 +1,61 @@
+.sectionMovie1 .container{
+  border: 1px solid var(--black15);
+  border-radius: 12px;
+  & .genre{
+      background-color: var(--black10);
+      border: 1px solid var(--black15);
+      border-radius: 12px;
+  }
+  & .trending{
+      background-color: var(--black10);
+      border: 1px solid var(--black15);
+      border-radius: 12px;
+      & h6{
+          color: var(--grey60);
+          background-color: var(--black8);
+          padding: 6px;
+          border: 1px solid var(--black15);
+          border-radius: 12px;
+      }
+  }
+  & .release{
+      background-color: var(--black10);
+      border: 1px solid var(--black15);
+      border-radius: 12px;
+      & h6{
+          color: var(--grey60);
+          background-color: var(--black8);
+          padding: 6px;
+          border: 1px solid var(--black15);
+          border-radius: 12px;
+      }
+  }
+  & .must{
+      background-color: var(--black10);
+      border: 1px solid var(--black15);
+      border-radius: 12px;
+      & .box{
+        height: 200px !important;
+      width: 200px !important;
+      }
+      & h6{
+          color: var(--grey60);
+          background-color: var(--black8);
+          padding: 6px;
+          border: 1px solid var(--black15);
+          border-radius: 12px;
+          & .fa-star{
+              color: var(--red45);
+          }
+      }
+  }
+}
+.film{
+  transition: 0.5s;
+}
+.film:hover{
+  filter: grayscale(0%) !important;
+}
+.row:hover>.film:not(:hover){
+  filter: grayscale(100%) !important;
+}

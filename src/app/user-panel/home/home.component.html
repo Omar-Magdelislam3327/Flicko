@@ -1,0 +1,240 @@
+<main @fadeIn>
+  <header>
+    <div class="heading text-center">
+      <h1>Unleash the Power of Entertainment</h1>
+      <p>Flicko is your go-to platform for discovering and streaming your favorite movies and series. With an
+        ever-growing library, personalized recommendations, and easy-to-create watchlists, you're always just one click
+        away from your next great watch!</p>
+    </div>
+
+  </header>
+  <section class="section1 pt-5 p-lg-5 p-3">
+    <div class="container">
+      <div class="title d-flex justify-content-between align-items-center flex-wrap">
+        <div class="txt">
+          <h3>Explore our wide variety of categories</h3>
+          <p>Whether you're looking for a comedy to make you laugh, a drama to make you think</p>
+        </div>
+        <div class="butn">
+          <button class="btn btn-danger" (click)="openRecommendFilmModal()">Recommend Film</button>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2">
+      <app-genres></app-genres>
+    </div>
+  </section>
+
+
+  <section class="section2 pt-5 p-lg-5 p-3">
+    <div class="container">
+      <div class="title">
+        <h3>Seamless Streaming, Anytime, Anywhere</h3>
+        <p>With Flicko, enjoy uninterrupted access to your favorite movies and TV shows on any device. Whether you're at
+          home, on the go, or anywhere in between, we ensure a smooth streaming experience that keeps you connected to
+          the entertainment you love.</p>
+      </div>
+
+      <div class="row pt-3">
+        <div class="col-lg-4 col-md-6 col-12 pt-3">
+          <div class="carde p-4">
+            <div class="head pb-4 d-flex justify-content-start align-items-center">
+              <i class="fa-solid fa-mobile-screen-button fs-1"></i>
+              <h5 class="ps-3">Smartphones</h5>
+            </div>
+            <p>Flicko is optimized for both Android and iOS smartphones. Download our app from the Google Play Store
+              or the Apple App Store</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 pt-3">
+          <div class="carde p-4">
+            <div class="head pb-4 d-flex justify-content-start align-items-center">
+              <i class="fa-solid fa-tablet fs-1"></i>
+              <h5 class="ps-3">Tablet</h5>
+            </div>
+            <p>Flicko is optimized for both Android and iOS smartphones. Download our app from the Google Play Store
+              or the Apple App Store</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 pt-3">
+          <div class="carde p-4">
+            <div class="head pb-4 d-flex justify-content-start align-items-center">
+              <i class="fa-solid fa-tv fs-1"></i>
+              <h5 class="ps-3">Smart TV</h5>
+            </div>
+            <p>Flicko is optimized for both Android and iOS smartphones. Download our app from the Google Play Store
+              or the Apple App Store</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 pt-3">
+          <div class="carde p-4">
+            <div class="head pb-4 d-flex justify-content-start align-items-center">
+              <i class="fa-solid fa-laptop fs-1"></i>
+              <h5 class="ps-3">Laptops</h5>
+            </div>
+            <p>Flicko is optimized for both Android and iOS smartphones. Download our app from the Google Play Store
+              or the Apple App Store</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 pt-3">
+          <div class="carde p-4">
+            <div class="head pb-4 d-flex justify-content-start align-items-center">
+              <i class="fa-solid fa-gamepad fs-1"></i>
+              <h5 class="ps-3">Gaming Consoles</h5>
+            </div>
+            <p>Flicko is optimized for both Android and iOS smartphones. Download our app from the Google Play Store
+              or the Apple App Store</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 pt-3">
+          <div class="carde p-4">
+            <div class="head pb-4 d-flex justify-content-start align-items-center">
+              <i class="fa-solid fa-vr-cardboard fs-1"></i>
+              <h5 class="ps-3">VR Headsets </h5>
+            </div>
+            <p>Flicko is optimized for both Android and iOS smartphones. Download our app from the Google Play Store
+              or the Apple App Store</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section3 p-lg-5 p-3">
+    <div class="container">
+      <div class="title">
+        <h3 class="text-white ">Frequently Asked Questions</h3>
+        <p>Got questions? We've got answers! Check out our FAQ section to find answers to the most common questions
+          about
+          Flicko.</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item gradient-border mt-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  <div class="txt d-flex align-items-center">
+                    <div class="number">
+                      <h6 class="num p-3 m-0 me-3">01</h6>
+                    </div>
+                    What is Flicko and how does it work?
+                  </div>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Flicko is your go-to streaming platform for movies and TV shows. We offer a wide variety of
+                    on-demand content, allowing you to watch your favorites anytime, anywhere, on any device.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item gradient-border mt-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <div class="txt d-flex align-items-center">
+                    <div class="number">
+                      <h6 class="num p-3 m-0 me-3">02</h6>
+                    </div>
+                    What types of content can I find on Flicko?
+                  </div>
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Flicko offers a vast selection of films and TV shows across all genres including Action, Comedy,
+                    Drama, Horror, and more. We cater to all tastes and ensure you'll find something to enjoy.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item gradient-border mt-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <div class="txt d-flex align-items-center">
+                    <div class="number">
+                      <h6 class="num p-3 m-0 me-3">03</h6>
+                    </div>
+                    Can I watch movies in multiple genres at once?
+                  </div>
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Yes, many of our films span across multiple genres. For instance, you might find a movie
+                    categorized as both Action and Sci-Fi. When exploring genres, you'll find films that belong to one
+                    or more categories.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item gradient-border mt-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  <div class="txt d-flex align-items-center">
+                    <div class="number">
+                      <h6 class="num p-3 m-0 me-3">04</h6>
+                    </div>
+                    How often are new movies added to Flicko?
+                  </div>
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>We continuously update our library to bring you the latest releases and popular films. Be sure to
+                    check back frequently for new titles in all your favorite genres.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item gradient-border mt-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  <div class="txt d-flex align-items-center">
+                    <div class="number">
+                      <h6 class="num p-3 m-0 me-3">05</h6>
+                    </div>
+                    Can I get more details about a specific film?
+                  </div>
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Simply click on a film’s poster or title to access its detailed page, where you can find
+                    information such as the synopsis, duration, cast, reviews, and ratings from other viewers.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item gradient-border mt-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  <div class="txt d-flex align-items-center">
+                    <div class="number">
+                      <h6 class="num p-3 m-0 me-3">06</h6>
+                    </div>
+                    How do I search for films on Flicko?
+                  </div>
+                </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Use the search bar at the top of the page to find films by title, genre, or actor. You can also
+                    filter results to make finding the perfect movie or show even easier.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>

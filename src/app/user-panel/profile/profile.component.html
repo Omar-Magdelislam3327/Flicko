@@ -1,0 +1,78 @@
+<main @fadeIn>
+  <section class="pt-5"></section>
+  <section class="pt-5 p-5">
+    <div class="container container-total" @fadeIn>
+      <div>
+        <h3 class="pt-4 pb-2">Your <span class="text-danger">Watchlist</span></h3>
+        <div *ngIf="watchlist.length > 0">
+          <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let film of watchlist">
+              <ng-template carouselSlide>
+                <div class="film">
+                  <!-- <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}" position="top-right"
+                    key="watchlist-toast" [style]="{'margin-top': '100px'}"></p-toast> -->
+                  <button type="button" class="remove" (click)="removeFromWatchlist(film, $event)">
+                    <i class="fa-solid fa-check fs-3"></i>
+                  </button>
+                  <a routerLink="/show/{{ film.id }}" class="text-reset text-decoration-none">
+                    <div class="carde mt-3">
+
+                      <div class="img-wrapper">
+                        <img src="https://image.tmdb.org/t/p/w500{{ film.poster_path }}" class="img-fluid"
+                          alt="{{ film.title }}">
+                      </div>
+                      <div class="pt-0 p-3">
+                        <div class="title mt-2">
+                          <h5>{{ film.title | slice : 0 : 20 }}</h5>
+                        </div>
+                        <div class="txt d-flex justify-content-between align-items-center">
+                          <h6 class="mt-2"><i class="fa-solid fa-clock pe-2"></i>{{ film.release_date }}</h6>
+                          <h6 class="mt-2"><i class="fa-solid fa-eye"></i> {{ film.popularity }}</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+        </div>
+        <p *ngIf="watchlist.length === 0">No movies in your watchlist. </p>
+      </div>
+
+
+      <h3 class="pt-4 pb-2">Your <span class="text-danger">Favorites</span></h3>
+      <div *ngIf="favorites.length > 0">
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let film of favorites">
+            <ng-template carouselSlide>
+              <div class="film" (click)="removeFromFavorites(film , $event)">
+                <button class="remove">
+                  <i class="fa-solid fa-x"></i>
+                </button>
+                <a routerLink="/show/{{ film.id }}" class="text-reset text-decoration-none">
+                  <div class="carde my-3">
+                    <div class="img-wrapper">
+                      <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w500' + film.poster_path"
+                        alt="{{ film.title }}" />
+                    </div>
+                    <div class="pt-0 p-3">
+                      <div class="title mt-2">
+                        <h5>{{ film.title | slice : 0 : 20 }}</h5>
+                      </div>
+                      <div class="txt d-flex justify-content-between align-items-center">
+                        <h6 class="mt-2"><i class="fa-solid fa-clock pe-2"></i>{{ film.release_date }}</h6>
+                        <h6 class="mt-2"><i class="fa-solid fa-eye"></i> {{ film.popularity }}</h6>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </div>
+      <p *ngIf="favorites.length === 0">No movies in your favorites.</p>
+    </div>
+  </section>
+</main>

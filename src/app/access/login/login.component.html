@@ -1,0 +1,32 @@
+<main @fadeIn>
+
+  <div class="container">
+    <div class="text-center">
+      <img src="assets/vendors/imgs/icon.svg" class="img-fluid" alt="">
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" id="username" class="form-control shadow-none" [(ngModel)]="username" name="username"
+          required />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <div class="input-group">
+          <input [type]="passwordFieldType" id="password" class="form-control shadow-none" [(ngModel)]="password"
+            name="password" required />
+          <i type="button" class="btn btn-outline-secondary" (click)="togglePasswordVisibility()">
+            <i [class]="passwordFieldType === 'password' ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"></i>
+          </i>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-danger" [disabled]="loginForm.invalid">Login</button>
+        <p class="mt-3">Don't have an account?
+          <a href="javascript:void(0)" class="text-danger" (click)="showSignupAlert()">Sign up</a>
+        </p>
+      </div>
+    </form>
+  </div>
+
+</main>

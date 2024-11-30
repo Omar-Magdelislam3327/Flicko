@@ -1,0 +1,36 @@
+<main @fadeIn>
+  <div class="container pt-4 p-5"></div>
+
+  <p-toast position="top-right" key="watchlist-toast" [style]="{'margin-top': '100px'}"></p-toast>
+
+  <div class="section p-lg-5 p-3">
+    <div class="container container-total">
+      <h2 class="text-center mt-3">Surprise <span class="text-danger">Movies</span>!</h2>
+      <div class="row">
+        <div class="col-lg-3 mt-3" *ngFor="let film of surpriseMovies">
+          <a routerLink="/show/{{ film.id }}" class="text-reset text-decoration-none">
+            <div class="carde my-3">
+              <div class="img-wrapper">
+                <img src="https://image.tmdb.org/t/p/w500{{ film.poster_path }}" class="img-fluid"
+                  alt="{{ film.title }}">
+              </div>
+              <div class="pt-0 p-3">
+                <div class="title mt-2">
+                  <h5>{{ film.title | slice : 0 : 27 }}</h5>
+                </div>
+                <div class="txt d-flex justify-content-between align-items-center">
+                  <h6 class="mt-2"><i class="fa-solid fa-clock pe-2"></i>{{ film.release_date }}</h6>
+                  <h6 class="mt-2"><i class="fa-solid fa-eye"></i> {{ film.popularity }}</h6>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noMovies>
+    <h3>No surprise movies available!</h3>
+  </ng-template>
+</main>

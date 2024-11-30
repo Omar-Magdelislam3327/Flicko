@@ -1,0 +1,100 @@
+<main @fadeIn>
+  <div class="section pt-5 p-5"></div>
+  <section class="section1 p-lg-5 p-3">
+    <div class="container">
+      <div class="row">
+        <div class=" col-lg-4 row flex-column m-0 p-0">
+          <div class="col-lg-12">
+            <div class="genre-stats">
+              <h3>Most Preferred Genre : <span class="text-danger">{{ mostPreferredGenre || 'No genre preference yet'
+                  }}</span></h3>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="genre-stats">
+              <h3>Most Preferred Actor : <span class="text-danger">{{ mostPreferredActor || 'No actor preference yet'
+                  }}</span></h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-3">
+          <div class="user-info">
+            <h3>User Info</h3>
+            <p class="m-0 pb-1">{{ accountDetails.username || 'User' }}</p>
+            <button class="btn btn-danger" (click)="logout()">Logout</button>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-3">
+          <div class="total-favorites">
+            <h3>Total Movies in Favorites</h3>
+            <p class="m-0">{{ totalFavorites }}</p>
+            <p-toast></p-toast>
+            <button class="btn btn-danger" pButton pRipple (click)="surpriseMe()">Surprise Me</button>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 my-4">
+          <div class="genre-stats-pie">
+            <h3 class="mb-3">Genre Statistics</h3>
+            <p-chart type="pie" [data]="genreData" style="width: 100%; height: 300px;"></p-chart>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-8 my-4">
+          <div class="row">
+            <div class="col-12">
+              <div class="favorite-actors">
+                <h3>Top Actors</h3>
+                <div class="imgsActors">
+                  <img *ngFor="let actor of topActors | slice : 0 : 9"
+                    [src]="'https://image.tmdb.org/t/p/w500/' + actor.profile_path" class="img-fluid mt-3"
+                    alt="{{ actor.name }}">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mt-3">
+              <div class="card " *ngFor="let trendingMovies of trendingMovies">
+                <div class="card-body">
+                  <h3 class="card-title text-white mb-4">Trending Now</h3>
+                  <p class="card-text">Name : {{ trendingMovies.title }}</p>
+                  <p class="card-text">Release Date : {{ trendingMovies.release_date }}</p>
+                  <p class="card-text">Rating : <span class="text-danger">{{ trendingMovies.vote_average}}</span> / 10
+                  </p>
+                  <p class="card-text">Vote Count: {{ trendingMovies.vote_count }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mt-3">
+              <div class="card">
+                <div class="card-body" *ngFor="let upcoming of upcoming">
+                  <h3 class="card-title text-white mb-4">Upcoming Releases</h3>
+                  <p class="card-text">Name : {{ upcoming.title }}</p>
+                  <p class="card-text">Release Date : {{ upcoming.release_date }}</p>
+                  <p class="card-text">Rating : <span class="text-danger">{{ upcoming.vote_average}}</span> / 10</p>
+                  <p class="card-text">Vote Count: {{ upcoming.vote_count }}</p>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-lg-4 mt-3">
+              <div class="card">
+                <div class="card-body" *ngFor="let trendingMovies of trendingMovies">
+                  <h3 class="card-title text-white mb-4">Trending Now</h3>
+                  <p class="card-text">Name : {{ trendingMovies.title }}</p>
+                  <p class="card-text">Release Date : {{ trendingMovies.release_date }}</p>
+                  <p class="card-text">Rating : {{ trendingMovies.vote_average}}</p>
+                  <p class="card-text">Vote Count: {{ trendingMovies.vote_count }}</p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

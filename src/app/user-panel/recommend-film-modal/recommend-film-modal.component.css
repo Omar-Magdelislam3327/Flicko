@@ -1,0 +1,17 @@
+
+.modal-header , .modal-body{
+  background-color: #141414;
+  border-radius: 0 !important;
+}
+::ng-deep .btn-close {
+  /* background-color: #ff0000; */
+  transition: 0.3s;
+  /* background-image: url(../../assets/vendors/imgs/x.jpg); */
+}
+.form-select{
+  background-color: #141414;
+  color: white;
+}
+.form-select::selection{
+  background-color: red;
+}

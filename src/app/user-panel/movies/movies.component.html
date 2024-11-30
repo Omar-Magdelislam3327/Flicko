@@ -1,0 +1,98 @@
+<section class="pt-5"></section>
+<section class="sectionMovie1 pt-5 p-5" @fadeIn>
+  <div class="container p-5">
+    <div class="title">
+      <div class="txt">
+        <h3 class="pb-3 p-0">Our Genres</h3>
+      </div>
+    </div>
+    <app-genres></app-genres>
+
+    <div class="title pt-5">
+      <div class="txt">
+        <h3>New Releases</h3>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="film col-lg-3 col-md-12 mt-3" *ngFor="let film of newReleaseFilms">
+        <a class="text-reset text-decoration-none" [routerLink]="['/show', film.id]" [state]="{ id: film.id }">
+          <div class="box release p-3">
+            <div class="img-wrapper">
+              <img [src]="'https://image.tmdb.org/t/p/w500/' + film.poster_path" class="img-fluid"
+                alt="{{ film.title }}">
+            </div>
+            <img src="{{film.poster}}" class="img-fluid" alt="">
+            <div class="txt text-center">
+              <h6 class="mt-2">{{film.title | slice : 0 : 20}}</h6>
+              <h6 class="mt-2">{{ film.release_date }}</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="title pt-5">
+      <div class="txt">
+        <h3>Must - Watch Movies</h3>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="film col-lg-3 col-12 mt-2">
+        <a routerLink="/show/{{155}}" class="text-reset text-decoration-none">
+          <div class="box release p-3">
+            <img src="assets/vendors/imgs/dark-knight.jpg" class="img-fluid" alt="">
+            <div class="txt d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mt-lg-2"><i class="fa-solid fa-clock"></i> 2h 32min</h6>
+              <h6 class="mt-lg-2"><i class="fa-solid fa-star text-danger me-1"></i>10/10</h6>
+            </div>
+            <div class="txt d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mt-lg-2"> Action , Crime</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="film col-lg-3 col-12 mt-2">
+        <a routerLink="/show/{{238}}" class="text-reset text-decoration-none">
+          <div class="box release p-3">
+            <img src="assets/vendors/imgs/godfather.jpg" class="img-fluid" alt="">
+            <div class="txt d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mt-lg-2"><i class="fa-solid fa-clock"></i> 2h 55min</h6>
+              <h6 class="mt-lg-2"><i class="fa-solid fa-star text-danger me-1"></i>10/10</h6>
+            </div>
+            <div class="txt d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mt-lg-2"> Drama , Crime</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="film col-lg-3 col-12 mt-2">
+        <a routerLink="/show/{{111}}" class="text-reset text-decoration-none">
+          <div class="box release p-3">
+            <img src="assets/vendors/imgs/scarface.jpg" class="img-fluid" alt="">
+            <div class="txt d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mt-lg-2"><i class="fa-solid fa-clock"></i> 2h 50min</h6>
+              <h6 class="mt-lg-2"><i class="fa-solid fa-star text-danger me-1"></i>10/10</h6>
+            </div>
+            <div class="txt d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mt-lg-2"> Drama , Crime</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="film col-lg-3 col-12 mt-2">
+        <a routerLink="/show/{{16869}}" class="text-reset text-decoration-none">
+          <div class="box release p-3">
+            <img src="assets/vendors/imgs/ingloriues.jpg" class="img-fluid" alt="">
+            <div class="txt d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mt-lg-2"><i class="fa-solid fa-clock"></i> 2h 33min</h6>
+              <h6 class="mt-lg-2"><i class="fa-solid fa-star text-danger me-1"></i>10/10</h6>
+            </div>
+            <div class="txt d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mt-lg-2"> Adventure , War</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

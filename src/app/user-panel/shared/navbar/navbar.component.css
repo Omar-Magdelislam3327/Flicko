@@ -1,0 +1,67 @@
+nav {
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  z-index: 9876543;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:active,
+.navbar-nav .nav-link {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.activ {
+  background-color: var(--black10);
+  border: 1px solid var(--black15);
+  border-radius: 8px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.modal {
+  z-index: 1478624585258747458287;
+}
+
+.modal-content {
+  background-color: var(--black8);
+  color: var(--grey95);
+}
+
+.card {
+  margin-bottom: 1rem;
+  background-color: var(--black10);
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1rem;
+  color: var(--grey95);
+}
+
+.form-control {
+  background-color: var(--black12) !important;
+  border: 1px solid var(--black15) !important;
+  caret-color: var(--red45);
+  color: var(--grey60) !important;
+}
+
+.form-control::placeholder {
+  color: var(--grey60) !important;
+}
+
+.btn-close {
+  background-color: var(--red45);
+  filter: brightness(0.9);
+}

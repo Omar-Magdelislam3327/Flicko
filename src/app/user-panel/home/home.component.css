@@ -1,0 +1,72 @@
+.genre {
+  transition: 0.3s;
+}
+
+.genre:hover {
+  filter: grayscale(0%) !important;
+}
+
+.row:hover>.genre:not(:hover) {
+  filter: grayscale(100%) !important;
+}
+
+.section3 {
+  .title {
+    p {
+      color: var(--grey60) !important;
+    }
+  }
+
+  .gradient-border {
+    position: relative;
+    padding-bottom: 10px;
+    background-color: transparent;
+    border: none !important;
+
+  }
+
+  .accordion-header,
+  .accordion-button {
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  .accordion-body p {
+    color: var(--grey60) !important;
+  }
+
+  .gradient-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #1c1c1e, #D81F2E, #1c1c1e);
+  }
+
+  .num {
+    background-color: var(--black10);
+    border-radius: 10px;
+    border: 1px solid var(--black15);
+    font-size: 20px;
+
+  }
+
+  .txt {
+    color: white !important;
+  }
+
+  p {
+    color: var(--black6) !important;
+  }
+
+  .accordion-body {
+    color: var(--black8) !important;
+  }
+}
+
+.accordion-button::after {
+  --bs-accordion-btn-icon: url("../../../assets/vendors/imgs/chevron-down-solid.svg") !important;
+  --bs-accordion-btn-active-icon: url("../../../assets/vendors/imgs/chevron-down-solid-hover.svg") !important;
+}

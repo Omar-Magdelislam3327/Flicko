@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h4 class="modal-title">Recommend Film</h4>
+  <button type="button" class="btn-close shadow-none" aria-label="Close"
+    (click)="modal.dismiss('Cross click')"></button>
+</div>
+
+<div class="modal-body">
+  <form (ngSubmit)="recommendFilms()">
+    <div class="mb-3">
+      <label for="category1" class="form-label">Category 1</label>
+      <select id="category1" class="form-select shadow-none" [(ngModel)]="category1" name="category1" required>
+        <option value="" disabled>Select Category 1</option>
+        <option *ngFor="let genre of genres" [value]="genre.id">
+          {{ genre.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="category2" class="form-label">Category 2</label>
+      <select id="category2" class="form-select shadow-none" [(ngModel)]="category2" name="category2" required>
+        <option value="" disabled>Select Category 2</option>
+        <option *ngFor="let genre of genres" [value]="genre.id">
+          {{ genre.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-danger">Show Results</button>
+    </div>
+  </form>
+</div>

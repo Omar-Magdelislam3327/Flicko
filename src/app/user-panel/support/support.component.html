@@ -1,0 +1,51 @@
+<section class="pt-5 p-5"></section>
+<section class="section1 pt-lg-5 p-lg-5 p-2" @fadeIn>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 d-none d-lg-block">
+        <div class="lft">
+          <h2 class="fw-bold">Welcome to our support page!</h2>
+          <p>We're here to help you with any problems you may be having with our product.</p>
+          <img src="assets/vendors/imgs/Sub Container.png" class="img-fluid" alt="">
+        </div>
+      </div>
+      <div class="col-lg-8 col-12">
+        <div class="rit p-4">
+          <form id="contactForm" #contactForm="ngForm" (ngSubmit)="sendMessage(contactForm)">
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label for="inputFname" class="form-label">First Name</label>
+                <input type="text" class="form-control shadow-none" id="inputFname" name="firstName"
+                  placeholder="Enter First Name" required [(ngModel)]="contactFormData.firstName">
+              </div>
+              <div class="col-md-6">
+                <label for="inputlname" class="form-label">Last Name</label>
+                <input type="text" class="form-control shadow-none" id="inputlname" name="lastName"
+                  placeholder="Enter Last Name" required [(ngModel)]="contactFormData.lastName">
+              </div>
+              <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control shadow-none" id="inputEmail4" name="email"
+                  placeholder="Enter Email" required [(ngModel)]="contactFormData.email">
+              </div>
+              <div class="col-md-6">
+                <label for="inputPhone" class="form-label">Phone</label>
+                <input type="tel" class="form-control shadow-none" id="inputPhone" name="phone"
+                  placeholder="Enter Phone" [(ngModel)]="contactFormData.phone">
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Message</label>
+                <textarea cols="20" rows="7" placeholder="Enter Your Message" name="message"
+                  class="form-control shadow-none" required [(ngModel)]="contactFormData.message"></textarea>
+              </div>
+              <div class="col-12 text-end pt-3">
+                <button type="submit" [disabled]="contactForm.invalid" class="btn btn-danger">Send Message</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

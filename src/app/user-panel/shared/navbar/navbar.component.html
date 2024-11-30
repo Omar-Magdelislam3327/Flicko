@@ -1,0 +1,77 @@
+<nav id="navbar" class="navbar navbar-expand-lg pt-3">
+  <div class="container">
+    <a class="navbar-brand " routerLink="/home">
+      <img src="assets/vendors/imgs/icon.svg" class="img-fluid" style="width: 50px;" alt="Bootstrap" width="150">
+    </a>
+    <button class="navbar-toggler collapsed shadow-none" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation" #navbarToggler>
+      <img src="https://fadyemad01.github.io/omar-nav/img/Vector%20(Stroke).svg" alt="">
+    </button>
+
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 p-1 gap-3">
+        <li class="nav-item">
+          <a class="nav-link shadow-none" routerLink="/home" routerLinkActive="activ">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link shadow-none" routerLink="/movies" routerLinkActive="activ">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link shadow-none" routerLink="/series" routerLinkActive="activ">Series</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link shadow-none" routerLink="/my-movies" routerLinkActive="activ">My Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link shadow-none" routerLink="/support" routerLinkActive="activ">Support</a>
+        </li>
+      </ul>
+      <div class="d-flex text-center justify-content-center iconNav">
+        <i class="fa-solid fa-magnifying-glass fs-5 me-3" (click)="openSearchModal()" style="cursor: pointer;"></i>
+        <i class="fa-regular fa-user fs-5" routerLinkActive="fa-solid text-danger" routerLink="/profile"
+          style="cursor: pointer;"></i>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" [ngStyle]="modalStyle">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel">Search for a Movie</h5>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3 d-flex align-items-center justify-content-between text-center g-4 flex-wrap">
+          <input type="text" class="form-control shadow-none" [(ngModel)]="searchQuery"
+            (ngModelChange)="onSearchChange()" placeholder="Enter movie name" />
+
+        </div>
+        <div class="title" *ngIf="movies.length > 0">
+          <h4>Search Results</h4>
+          <p>Found {{ movies.length }} results</p>
+        </div>
+        <div class="row">
+          <div class="text-center text-danger" *ngIf="movies.length === 0">
+            <p>No movies yet</p>
+          </div>
+          <div class="col-lg-3 col-12" *ngFor="let movie of movies">
+            <a routerLink="/show/{{movie.id}}" class="text-reset text-decoration-none">
+              <div class=" card">
+                <img class="card-img-top"
+                  [src]="movie.poster_path ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path : 'assets/no-image.jpg'"
+                  alt="{{movie.title}}" />
+                <div class="card-body">
+                  <h5 class="card-title">{{ movie.title | slice : 0 : 15}}</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

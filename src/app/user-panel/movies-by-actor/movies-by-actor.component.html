@@ -1,0 +1,26 @@
+<section class="p-5"></section>
+<section class="pt-5 p-lg-5" @fadeIn>
+  <div class="container">
+    <div class="title text-center pt-4">
+      <h3>Top Rated <span class="text-danger">{{selectedActor}}</span> Movies</h3>
+    </div>
+    <div *ngIf="movies.length > 0" class="row mt-4">
+      <div class="col-lg-3 col-12 my-3 "
+        *ngFor="let movie of movies | paginate : { id: 'paginate', itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalResults }">
+        <div class="actor p-4">
+          <a routerLink="/show/{{ movie.id }}" class="text-reset text-decoration-none">
+            <div class="img-wrapper">
+              <img class=" img-fluid"
+                [src]="movie.poster_path ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path : 'assets/no-image.jpg'"
+                alt="{{ movie.title }}" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title mt-2">{{ movie.title | slice : 0 : 23 }}</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,189 @@
+<section class="pt-5"></section>
+<section class="section1 pt-5 p-5" @fadeIn>
+  <div class="container">
+    <div class="row">
+      <div class="image-container">
+        <img [src]="imageUrl" class="img-fluid" alt="{{ film.title }}">
+      </div>
+
+
+      <div class="txt text-center mt-3">
+        <h4 class="fw-bold">{{film.original_title}}</h4>
+        <p>{{film.tagline}}</p>
+
+        <button class="btn btn-danger col-lg-3 me-lg-3 me-0 " (click)="playTrailer()">
+          <i class="fa-solid fa-play pe-2"></i>Play Trailer
+        </button>
+
+        <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}" position="top-right"
+          key="watchlist-toast" [style]="{'margin-top': '100px'}"></p-toast>
+        <button type="button" pButton pRipple class="btn btn-danger col-lg-3 me-lg-3 me-0 mt-lg-0 mt-3"
+          (click)="addToWatchlist()">
+          <i class="fa-solid fa-plus pe-2"></i>Add to Watchlist
+        </button>
+
+        <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}" position="top-right"
+          key="favorites-toast" [style]="{'margin-top': '100px'}"></p-toast>
+        <button pButton pRipple class="btn btn-danger col-lg-3 mt-lg-0 mt-3" (click)="addToFavorites()">
+          <i class="fa-regular fa-heart pe-2"></i>Add to Favorites
+        </button>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section2 pt-5 p-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="lft">
+          <div class="box p-4">
+            <h3>Description</h3>
+            <p>{{film.overview}}</p>
+          </div>
+          <div class="box p-4 mt-5">
+            <h3>Cast</h3>
+            <div class="row">
+              <div class="col-lg-3 mt-3" *ngFor="let cast of cast">
+                <div class="cast" (click)="fetchMoviesByActor(cast.id)">
+                  <div class="image-wrapper">
+                    <img class="img-fluid" [src]="'https://image.tmdb.org/t/p/w500/' + cast.profile_path" alt="">
+                    <div class="name">
+                      <h5> {{ cast.name }}
+                      </h5>
+                      <span class="text-danger fw-bold">
+                        {{ cast.character }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="box p-4 mt-4 mb-lg-0 mb-4">
+            <div class="title d-flex justify-content-between align-items-center">
+              <h3>Reviews</h3>
+              <!-- <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#reviewModal">Add your
+                Review</button> -->
+            </div>
+            <div class="reviews mt-3">
+              <owl-carousel-o [options]="customOptions" *ngIf="review.length > 0 else noReviews">
+                <ng-container *ngFor="let review of review">
+                  <ng-template carouselSlide>
+                    <div class="review-item">
+                      <div class="author-info d-flex align-items-center justify-content-between my-3">
+                        <span class="ms-2 fs-5">{{ review.author_details.username || review.author }}</span>
+                        <p class="rating  m-0 p-0"><span class="text-danger">{{ review.author_details.rating }}</span> /
+                          10</p>
+                      </div>
+                      <p class="content">
+                        {{ review.content | slice:0:200 }}
+                        <span *ngIf="review.content.length > 200">
+                          <a class="text-danger" target="_blank" [href]="review.url">...See More</a>
+                        </span>
+                      </p>
+
+                    </div>
+                  </ng-template>
+                </ng-container>
+              </owl-carousel-o>
+            </div>
+          </div>
+          <ng-template #noReviews>
+            <div class="text-center">No reviews found.</div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="rit box p-4">
+          <p><i class="fa-regular fa-calendar-days pe-2"></i>Released Date</p>
+          <h6 class="p-0 m-0">{{film.release_date | date :"dd/MM/Y"}}</h6>
+          <p><i class="fa-solid fa-language pe-2 mt-4"></i>Language</p>
+          <h6 class="p-0 m-0">
+            <span *ngFor="let language of film.spoken_languages; let last = last">
+              {{ language.name }}<span *ngIf="!last">, </span>
+            </span>
+          </h6>
+          <p><i class="fa-regular fa-star pe-2 mt-4"></i>Rating</p>
+          <h6 class="p-0 m-0">Popularity : <span class="text-danger">{{film.vote_average}}</span> / 10
+          </h6>
+          <p><i class="fa-solid fa-table-cells-large pe-2 mt-4"></i>Genres</p>
+          <div class="row mx-0 text-center">
+            <div class="col-6 col-lg-3 mt-lg-1 mt-3 d-flex justify-content-center" *ngFor="let genre of film.genres">
+              <span class="genre p-2">
+                {{ genre.name }}
+              </span>
+            </div>
+          </div>
+
+
+          <p class="mt-4">Production Company</p>
+          <div class="row companies ">
+            <div class="col-lg-3 col-6 mt-lg-0 mt-3" *ngFor="let company of film.production_companies">
+              <img [src]="'https://image.tmdb.org/t/p/w500/' + company.logo_path" class="img-fluid"
+                alt="{{ company.name }}">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row mt-4">
+      <h3>Related Movies</h3>
+      <div class="col-lg-3 mt-3 " *ngFor="let similar of recommendations">
+        <div class="similar p-4">
+          <a class="text-decoration-none" routerLink="/show/{{ similar.id }}">
+            <div class="img-wrapper">
+              <img [src]="'https://image.tmdb.org/t/p/w500/' + similar.poster_path" class="img-fluid"
+                alt="{{ similar.title }}">
+            </div>
+            <h6 class="mt-2 text-center">{{ similar.title | slice : 0 : 29 }}</h6>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="modal fade" id="trailerModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Watch <span class="text-danger mx-2 fw-bold">{{film.title}}</span> Trailer</h5>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <iframe *ngIf="trailerUrl" [src]="trailerUrl" width="100%" height="500px" frameborder="0"
+          allowfullscreen></iframe>
+        <div *ngIf="!trailerUrl" class="text-center text-center">
+          <p>Sorry , Trailer not available for this movie.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModalLabel">Add Your Review</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submitReview()">
+          <div class="mb-3">
+            <label for="rating" class="form-label">Rating (0.5 - 10):</label>
+            <input type="number" class="form-control" id="rating" [(ngModel)]="rating" name="rating" min="0.5" max="10"
+              step="0.5" required />
+          </div>
+          <div class="mb-3">
+            <label for="review" class="form-label">Review:</label>
+            <textarea class="form-control" id="review" rows="3" [(ngModel)]="content" name="reviewContent"
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn-danger w-100">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
